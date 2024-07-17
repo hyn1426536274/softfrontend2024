@@ -10,6 +10,11 @@
 
       <div v-if="connected">
         <img v-if="is_open_camera" ref="imgPlayer" alt="">
+        <div v-if="is_open_camera" class="control_description">
+          <p style="font-weight: bold;">控制说明</p>
+          <p>小车 : W A S D: 前进 左转 后退 右转 ; Q E: 左旋 右旋</p>
+          <p>摄像头 : I J K L: 上 左 下 右</p>
+        </div>
         <div>
           <div class="camera_btn" v-if="is_open_camera" @click="closeCamera">Close Camera</div>
           <div class="camera_btn" v-else @click="openCamera">Open Camera</div>
@@ -180,6 +185,8 @@ export default {
   align-items: center;
   min-height: 100%;
   background-color: #f0f0f0;
+
+  padding-top: 100px;
 }
 
 .login_contain, .unlogin_contain {
