@@ -272,7 +272,7 @@ export default {
 }
 
 #main {
-  background-image: url('../../public/images/waves/wave05.svg');
+  background-image: url('../../public/images/waves/wave10.svg');
   background-size: cover;
   width: 100%;
   height: 100vh;

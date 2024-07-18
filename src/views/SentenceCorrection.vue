@@ -276,9 +276,13 @@ export default {
           }
         );
         console.log('correst_response:', response.data);
-        this.correction_result = response.data.result;
+        
         if(!response.data.result){
           this.correction_result = "无修正结果";
+        }
+        else{
+          // const len = response.data.result.length;
+          this.correction_result = response.data.result.slice(16);
         }
       }
       catch (error) {

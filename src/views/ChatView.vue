@@ -207,6 +207,7 @@ export default {
         this.current_answer = response.data.result;
         this.messages.push({ type: 'bot', text: this.current_answer });
 
+        
         this.ChatStep = 1; // 重新进入语音录音状态
       } catch (error) {
         this.stopChat();

@@ -328,6 +328,7 @@ export default {
     text-align: center;
     line-height: 50px;
     margin-right: 10px;
+    margin-bottom: 10px;
     font-weight: bold;
   }
 
@@ -340,6 +341,7 @@ export default {
     text-align: center;
     line-height: 50px;
     margin-right: 10px;
+    margin-bottom: 10px;
     font-weight: bold;
   }
 }

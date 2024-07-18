@@ -89,6 +89,8 @@ export default {
       messages: [
         [
           { type: 'bot', text: "你好，我是李白，有什么问题可以问我哟~" },
+          // { type: 'user', text: '你的全名是什么' },
+          // { type: 'bot', text: '（微微抬首）哈哈，我乃李白，字太白，号青莲居士，世人也爱称我为诗仙，阁下可知为何我号青莲居士？' },
         ],
         [
           { type: 'bot', text: "你好，我是诸葛亮，有什么问题可以问我哟~" },
@@ -120,10 +122,10 @@ export default {
       //   '../../public/images/roles/jll.jpg'
       // ],
       role_id: [
-        'b505bf4d019ebbe852f49b212e70a1ec', // 李白
-        '31bea398de488dccb6b8d94a22ee8fca', // 诸葛亮
-        'e0f55407b476d0a3a8521aaba3b9eeda', // 高斯
-        '24bc8c9e8db531aa55c67f466594a9f2' // 伽利略
+        '467ee70c5ad3c81c9b625efb2a85aa64', // 李白
+        '5c424eb9c0b2dd141be1eac5eeea1ba5', // 诸葛亮
+        '5cdabcb18594ae03cfa4249d213b177f', // 高斯
+        '40d60d7aec704d28dcc4b25f2c07c270' // 伽利略
       ],
       role_chatid: [ // 分别计数
         1,
@@ -164,9 +166,10 @@ export default {
     }
   },
   methods: {
-
     changeRole(role) {
       this.current_role = role;
+
+
     },
 
     renderMarkdown(text) {
@@ -305,6 +308,7 @@ export default {
         formData.append('msg', this.current_question);
         if (this.role_chatid[this.current_role] <= 1) {
           // 第一次问答 chatid = prechatid
+          console.log('first chat',this.role_chatid[this.current_role]);
           formData.append('chatid', this.role_chatid[this.current_role]);
           formData.append('prechatid', this.role_chatid[this.current_role]);
           this.role_chatid[this.current_role] = this.role_chatid[this.current_role] + 1;
@@ -316,7 +320,7 @@ export default {
         }
 
         formData.append('agentid', this.role_id[this.current_role]);
-        console.log('formData:', this.current_question, this.role_chatid[this.current_role] + 1, this.role_chatid[this.current_role], this.role_id[this.current_role]);
+        console.log('formData:', this.current_question, this.role_chatid[this.current_role], this.role_id[this.current_role]);
         const response = await axios.post('http://127.0.0.1:5000/talk', formData,
           {
             headers: {
